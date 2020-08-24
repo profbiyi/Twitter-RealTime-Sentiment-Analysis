@@ -1,4 +1,7 @@
 # DSTI_PythonLabS20
+
+
+## Realtme Sentiment and Batch Analysis of Tweets
 This Python Lab project is designed to pull real data from twitter and perform sentiment analysis on the same, also it is expected to store the tweets and do a batch analysis. 
 
 
