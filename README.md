@@ -15,4 +15,6 @@ Sentiment analysis will be performed on realtime tweets, the tweet and results v
 #### 4. Power BI
 
 
+## Architecture
+
 
