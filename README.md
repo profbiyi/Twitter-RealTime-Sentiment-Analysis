@@ -10,4 +10,9 @@ Sentiment analysis will be performed on realtime tweets, the tweet and results v
 
 ## Tools and Technology
 #### 1. Tweepy
+#### 2. Apache Kakfa
+#### 3. Apache Spark (Pyspark)
+#### 4. Power BI
+
+
 
