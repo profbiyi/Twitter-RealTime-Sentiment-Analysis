@@ -1,4 +1,4 @@
-# DSTI_PythonLabS20
+# DSTI Python Project 
 
 
 ## Realtme Sentiment and Batch Analysis of Tweets
