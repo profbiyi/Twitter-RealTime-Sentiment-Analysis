@@ -9,6 +9,13 @@ Sentiment analysis will be performed on realtime tweets, the tweet and results v
 
 
 ## Tools, Technology and Architecture
+
+
+
+<img width="900" alt="architecture" src="https://user-images.githubusercontent.com/21452793/91578421-0d641e80-e942-11ea-948e-d3f1de54dc52.PNG">
+
+
+
 #### 1. Tweepy
         For this project, tweepy streams data in realtime from twitter and send to Apache Kakfa.
         
