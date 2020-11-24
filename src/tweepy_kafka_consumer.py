@@ -6,13 +6,17 @@ import re
 from textblob import TextBlob
 import preprocessor as p
 import psycopg2
+from psycopg2.extras import execute_values
+from psycopg2.extensions import register_adapter
+
+register_adapter(dict, json)
 
 
-connection = psycopg2.connect(user = "postgres",
-    password = "2591",
+connection = psycopg2.connect(user = "twitter_user",
+    password = "user123",
     host = "localhost",
-    port = "5432",
-    database =  "test")
+    port = "1234",
+    database =  "tweet_db")
 
 cursor = connection.cursor()
 
@@ -46,13 +50,20 @@ for message in consumer:
                     'background_color' : str(tweet['user']['profile_background_color'])
                     }]
 
-    data_json = json.dumps(tweets, indent = 4)   
+    
+
+    columns = tweets[0].keys()
+    query = "INSERT INTO twitter_data ({}) VALUES %s".format(','.join(columns))
+
+    # convert projects values to sequence of seqeences
+    values = [[value for value in tweet.values()] for tweet in tweets]
+    execute_values(cursor, query, values)
+    connection.commit()
+    
+    
+    
+    
+    
+    data_json = json.dumps(tweets, indent = 4) 
     print(data_json)
     print()
-    #print(type(data_json)
-
-
-    #REST_API_URL = "https://api.powerbi.com/beta/983fd5a7-4101-47a8-9e55-46815a6ed49d/datasets/c3d5b1af-95ba-4625-881c-0cf77776981f/rows?key=Airq7p9FdX%2FazL5FcOs5UYsQ4V8P%2FM50LzaS7Zioa4CjamvEbAE5Uh2q%2FJuwYCLhwZ1E0qqiS%2FENIMyqJOaLaQ%3D%3D"
-    #req = requests.post(REST_API_URL, data_json)
-    #print(req)
-
