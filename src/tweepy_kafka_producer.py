@@ -19,13 +19,10 @@ consumer_secret = apiConfig.consumer_secret
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
-#api = tweepy.API(auth)
-#api = tweepy.API(auth, wait_on_rate_limit=True)
+
 api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
-
-#local system
-#producer = KafkaProducer(bootstrap_servers='192.168.99.100:9092')   
+  
 producer = KafkaProducer(bootstrap_servers='localhost:9092')
 topic_name = 'test'
 
@@ -37,13 +34,12 @@ class TweetStreamListener(tweepy.StreamListener):
     # When data is received
     def on_data(self, data):
 
-        # Error handling because teachers say to do this
+        # Error handling 
         try:
 
             # Make it JSON
             tweet = json.loads(data)
-            # producer.send(topic_name, str.encode(data))
-            # print(data)
+
         
 
             # # filter out retweets
@@ -68,14 +64,8 @@ if __name__ == '__main__':
     stream = tweepy.Stream(auth, listener)
 
     # # Filter the stream for these keywords. Add whatever you want here! 
-    # stream.filter(languages=["en"], track=['EndSarsNow',], is_async=True)
-
     try:
         print('Start streaming.')
-        stream.filter(languages=["en"], track=['SundayMotivation',], is_async=True)
+        stream.filter(languages=["en"], track=['TuesdayMotivation',], is_async=True)
     except KeyboardInterrupt as e :
         print("Stopped.")
-    # finally:
-    #     print('Done.')
-    #     stream.disconnect()
-    #     #output.close()
