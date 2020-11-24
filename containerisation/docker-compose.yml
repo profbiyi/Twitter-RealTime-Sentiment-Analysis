@@ -25,3 +25,19 @@ services:
       KAFKA_RESTART_ATTEMPTS: "10"
       KAFKA_RESTART_DELAY: "5"
       ZOOKEEPER_AUTOPURGE_PURGE_INTERVAL: "0"
+    volumes:
+      - 'C:/Users/ibnqu/Desktop/python_lab/db_data/kafka/kafka_data:/bitnami/kafka'
+  
+
+  postgresql:
+    image: 'bitnami/postgresql:latest'
+    ports:
+      - 1234:5432
+
+    environment:
+      - POSTGRESQL_USERNAME=twitter_user
+      - POSTGRESQL_PASSWORD=user123
+      - POSTGRESQL_DATABASE=tweet_db
+    
+    volumes:
+      - 'C:/Users/ibnqu/Desktop/python_lab/db_data/postgres:/bitnami/postgresql'
