@@ -26,7 +26,7 @@ services:
       KAFKA_RESTART_DELAY: "5"
       ZOOKEEPER_AUTOPURGE_PURGE_INTERVAL: "0"
     volumes:
-      - 'C:/Users/ibnqu/Desktop/python_lab/db_data/kafka/kafka_data:/bitnami/kafka'
+      - 'kafka_data:/bitnami'
   
 
   postgresql:
@@ -40,4 +40,4 @@ services:
       - POSTGRESQL_DATABASE=tweet_db
     
     volumes:
-      - 'C:/Users/ibnqu/Desktop/python_lab/db_data/postgres:/bitnami/postgresql'
+      - 'postgres:/bitnami/postgresql'
