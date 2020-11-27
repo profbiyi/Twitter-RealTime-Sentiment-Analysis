@@ -16,4 +16,4 @@ background_color VARCHAR(50)
 )
 ;
 
-ALTER TABLE twitter_data OWNER to twitter_user;
+ALTER TABLE twitter_data OWNER to postgres;
