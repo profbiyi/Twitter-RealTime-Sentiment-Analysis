@@ -8,7 +8,7 @@ app.secret_key = 'uguqifg;bacihvwbiwyriyesklnl831980-12983y8u9'
 streams_list = []
 my_routes = {
  
-     "MD": ["Global Expense Overview", "Expense"]
+     "MD": ["Tweet_Analysis"]
   
 }
 
@@ -16,8 +16,7 @@ my_routes = {
 # views 
 views = [
     # (view_name, report_id)
-("Expense_Analysis", "4f98d4f7-7033-46d4-8fa1-746b9b36ad90"),
-("Expense", "4f98d4f7-7033-46d4-8fa1-746b9b36ad90")
+("Tweet_Analysis", "3c21020e-0506-472c-9dfb-c876192a34ac"),
 
 ]
 

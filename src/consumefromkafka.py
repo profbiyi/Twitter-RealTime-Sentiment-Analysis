@@ -10,6 +10,7 @@ import psycopg2
 from psycopg2.extras import execute_values
 from psycopg2.extensions import register_adapter
 import time
+from cleantext import clean
 
 register_adapter(dict, json)
 
@@ -23,7 +24,8 @@ connection = psycopg2.connect(user = apiConfig.user,
 cursor = connection.cursor()
 
 
-consumer = KafkaConsumer('test', bootstrap_servers=['<host>:9092'],value_deserializer=lambda m: json.loads(m.decode('utf-8')))
+consumer = KafkaConsumer('test', bootstrap_servers=['157.245.210.30:9092'],value_deserializer=lambda m: json.loads(m.decode('utf-8')))
+
 
 
 def getTextSubjectivity(txt):
@@ -38,8 +40,7 @@ for message in consumer:
 
     p.set_options(p.OPT.URL, p.OPT.EMOJI) #fully customise preprocessor to clean text
 
-    clean_tweet =  p.clean(str(tweet['text'].encode('utf-8')))
-    #clean_tweet = cleanUpTweet(str(tweet['text'].encode('utf-8')))
+    clean_tweet =  clean((tweet['text']))
     tweet_polarity = getTextPolarity(clean_tweet)
     tweet_subjectivity = getTextSubjectivity(clean_tweet)
 
@@ -80,6 +81,6 @@ for message in consumer:
 
 
     ##send live data to powerbi
-    REST_API_URL = "powe_bi Rest API"
+    REST_API_URL = "https://api.powerbi.com/beta/983fd5a7-4101-47a8-9e55-46815a6ed49d/datasets/47ccc959-38c0-4e4f-8669-8b178a15b74b/rows?key=83mUyYnPePd7ggyFUH%2Fqk2U9Zy87o1Oqf4eu9hLH1j1Wz1nZwh%2FtHfHAhQsEbyeDZdP%2B708onQVJAldGiSwKSg%3D%3D"
     req = requests.post(REST_API_URL, data_json)
     print(req)

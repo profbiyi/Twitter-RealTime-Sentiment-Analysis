@@ -26,7 +26,7 @@ api = tweepy.API(auth, wait_on_rate_limit=True, wait_on_rate_limit_notify=True)
 
 #local system
 #producer = KafkaProducer(bootstrap_servers='192.168.99.100:9092')   
-producer = KafkaProducer(bootstrap_servers='localhost:9092')
+producer = KafkaProducer(bootstrap_servers='157.245.210.30:9092')
 topic_name = 'test'
 
 
