@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}
+  <title>Dashboard {{ active_view }}</title>
+{% endblock %}
+
+{% block style %}
+  <style>
+    :root {
+        --sidebar-width: 17rem;
+    }
+    .sidebar {
+        width: var(--sidebar-width)
+    }
+    .main {
+        margin-left: var(--sidebar-width);
+    }
+    
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div class="dashboard flex h-screen w-screen bg-black py-3 pr-3">
+    <!-- sidebar -->
+    <aside class="sidebar w-64 fixed left-0 top-0 bottom-0 overflow-y-scroll flex-shrink-0 px-8 py-2">
+    <section class="sidebar-top flex flex-col">
+        <div class="logo text-white text-white font-medium text-4xl mb-8 mt-4">me myself</div>
+        <div class="user">
+            <img src="https://image.flaticon.com/icons/svg/848/848006.svg" alt="avatar" class="user-avatar inline-block mb-2 w-12 h-12" />
+            <h3 class="user-name text-white mb-0 text-xl font-bold capitalize">my username</h3>
+            <p class="user-email text-gray-500 text-sm">my email</p>
+        </div>
+    </section>
+      <nav class="text-gray-600 mt-16 text-sm">
+        <ul>
+            {% for route in my_routes %}
+            <li class="mb-4 font-medium capitalize">
+              {% if active_view == route %}
+              <a href="{{ url_for('render_view', view=route) }}" class="block text-white hover:text-white">
+                {{ route.replace("_", " ").capitalize() }}
+              </a> 
+              {% else %}
+              <a href="{{ url_for('render_view', view=route) }}" class="block hover:text-white">
+                {{ route.replace("_", " ").capitalize() }}
+              </a> 
+              {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+      </nav>
+    </aside>
+    <!-- end sidebar -->
+
+     <!-- start main -->
+    <main class="main bg-white ml-64 h-full rounded-lg flex-auto py-5 px-6 overflow-x-hidden">
+      <header class="flex justify-end mb-3">
+        <a class="text-base capitalize bg-red-500 text-white px-8 py-2 rounded-lg font-medium hover:bg-red-400" href={{ url_for('home') }}>Go back home <span class="sr-only">(current)</span></a>
+      </header>
+        {% block dashboard_content %} {% endblock %}
+    </main>
+    <!-- end main -->
+  </div>
+  {% endblock %}
+
+  {% block scripts %}
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% endblock %}

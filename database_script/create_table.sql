@@ -1,19 +1,19 @@
+
 CREATE TABLE twitter_data
 (
 created_at TIMESTAMP,
-id VARCHAR ( 50 ),
-text VARCHAR ( 500 ),
-clean_text VARCHAR ( 500 ),
+id VARCHAR (50),
+text text,
+clean_text text,
 tweet_polarity INT,
-cordinates VARCHAR(20), 
+tweet_subjectivity INT,
+cordinates text, 
 user_created TIMESTAMP,
-description VARCHAR ( 500 ),
-name VARCHAR ( 500 ),
-location VARCHAR ( 100 ),
+description text,
+name text,
+location text,
 followers_count INT,
 retweet_count INT,
-background_color VARCHAR(50)
+background_color text
 )
 ;
-
-ALTER TABLE twitter_data OWNER to postgres;

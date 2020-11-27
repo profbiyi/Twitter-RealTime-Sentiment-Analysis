@@ -1,0 +1,39 @@
+.input {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.input label {
+  position: absolute;
+  font-size: 15px;
+  background: #fff;
+  color: #888;
+  padding: 0 4px;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+  transition: 0.15s;
+}
+
+.input input
+.input select {
+  padding: 0 10px;
+  height: 50px;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+}
+
+.input input:focus
+.input select:focus {
+  border-color: black;
+}
+
+.input input:focus ~ label {
+  color: #444;
+}
+
+.input.is-focus label {
+  transform: none;
+  font-size: 12px;
+  top: 0px;
+}

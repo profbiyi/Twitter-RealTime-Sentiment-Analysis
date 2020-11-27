@@ -1,0 +1,34 @@
+{% extends "layout_real.html" %}
+{% block content %}
+<div class='st'>
+    <form class="simple-form" method="POST" action="/streaming">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class=flashes>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        <h3>Add Keywords</h3>
+        <div class="field">
+            <input type="text" id="input" name="keywords" placeholder="Enter your list of keywords seperated by ,s" required/>
+        </div>
+
+        <button>submit</button>
+    </form>
+</div>
+
+{% for stream in streams_list %}
+<div>
+    <p>{{stream["title"]}}</p>
+
+    <form method="POST" action={{ url_for('delete_stream') }}>
+        <input type="text" value="{{stream['id']}}" name="stream_id" hidden />
+        <button>Delete</button>
+    </form>
+</div>
+{% endfor %}
+
+{% endblock %}

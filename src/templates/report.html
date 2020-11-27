@@ -1,0 +1,17 @@
+{% extends "dashboard-layout.html" %}
+
+{% block title %}
+  <title>Dashboard </title>
+{% endblock %}
+
+      {% block dashboard_content %} -->
+        <div class="main-content w-full overflow-auto mb-10">
+          <!--  embedded report -->
+          <div>
+            <iframe width="1480" height="900" src="{{'https://app.powerbi.com/reportEmbed?reportId={}&autoAuth=true&ctid=983fd5a7-4101-47a8-9e55-46815a6ed49d'.format(reportId)}}" frameborder="0" allowfullscreen="true"></iframe>
+          </div>
+          <!-- end embedded report -->
+          <div id="dropDownSelect1"></div>
+        </div>
+        <!-- {% endblock %}
+   

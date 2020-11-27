@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  {% if title %}
+  <title>Dashboard- {{ title }}</title>
+  {% else %}
+  <title>Dashboard</title>
+  {% endif %}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!--===============================================================================================-->
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/icons/favicon.ico') }}" />
+  <!--===============================================================================================-->
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css"
+    href="{{ url_for('static', filename='fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css"
+    href="{{ url_for('static', filename='fonts/iconic/css/material-design-iconic-font.min.css') }}" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/animate/animate.css') }}" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css"
+    href="{{ url_for('static', filename='vendor/css-hamburgers/hamburgers.min.css') }}" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css"
+    href="{{ url_for('static', filename='vendor/animsition/css/animsition.min.css') }}" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='vendor/select2/select2.min.css') }}" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css"
+    href="{{ url_for('static', filename='vendor/daterangepicker/daterangepicker.css') }}" />
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/util.css') }}" />
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}" />
+  <!--===============================================================================================-->
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-165717858-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-165717858-1');
+</script>
+</head>
+
+<body class="{% block body_class %}{% endblock %}" style="{% block body_style %}{% endblock %}">
+    <nav class="topnav bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/">
+        <img src="{{ url_for('static', filename='images/Ahmed_POC.png') }}" width="198" height="30"
+          class="d-inline-block align-top" alt="" />
+      </a>
+        <ul class="align-items-center d-flex ml-auto">
+          <li class="nav-item"><a class="nav-link" href="/streaming">Start Streaming</a></li>
+          <li class="nav-item"><a class="nav-link" href="/dashboard">View Dashboard</a></li> 
+        </ul>
+      </div>
+    </nav>
+  <div class="sidebar_overlay"></div>
+
+  <div class="wrapper">
+    <main style="{% block main_style %} {% endblock %}">
+      <div class="content">
+        {% block content %} {% endblock %}
+      </div>
+    </main>
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script>    
+    $('#sidebar_trigger').click(() => {
+      $('body').toggleClass('sidebar-opened');
+    })
+  </script>
+</body>
+
+</html>
