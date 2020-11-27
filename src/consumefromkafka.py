@@ -23,7 +23,7 @@ connection = psycopg2.connect(user = apiConfig.user,
 cursor = connection.cursor()
 
 
-consumer = KafkaConsumer('test', bootstrap_servers=['localhost:9092'],value_deserializer=lambda m: json.loads(m.decode('utf-8')))
+consumer = KafkaConsumer('test', bootstrap_servers=['<host>:9092'],value_deserializer=lambda m: json.loads(m.decode('utf-8')))
 
 
 def getTextSubjectivity(txt):
@@ -80,6 +80,6 @@ for message in consumer:
 
 
     ##send live data to powerbi
-    REST_API_URL = "https://api.powerbi.com/beta/983fd5a7-4101-47a8-9e55-46815a6ed49d/datasets/47ccc959-38c0-4e4f-8669-8b178a15b74b/rows?key=83mUyYnPePd7ggyFUH%2Fqk2U9Zy87o1Oqf4eu9hLH1j1Wz1nZwh%2FtHfHAhQsEbyeDZdP%2B708onQVJAldGiSwKSg%3D%3D"
+    REST_API_URL = "powe_bi Rest API"
     req = requests.post(REST_API_URL, data_json)
     print(req)
