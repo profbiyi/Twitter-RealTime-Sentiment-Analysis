@@ -18,34 +18,11 @@ services:
       - "9092:9092"
     environment:
       KAFKA_LISTENERS: "INTERNAL://:29092,EXTERNAL://:9092"
-      KAFKA_ADVERTISED_LISTENERS: "INTERNAL://kafka:29092,EXTERNAL://localhost:9092"
+      KAFKA_ADVERTISED_LISTENERS: "INTERNAL://kafka:29092,EXTERNAL://157.245.210.30:9092"
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: "INTERNAL:PLAINTEXT,EXTERNAL:PLAINTEXT"
       KAFKA_INTER_BROKER_LISTENER_NAME: "INTERNAL"
       KAFKA_ZOOKEEPER_SESSION_TIMEOUT: "6000"
       KAFKA_RESTART_ATTEMPTS: "10"
       KAFKA_RESTART_DELAY: "5"
       ZOOKEEPER_AUTOPURGE_PURGE_INTERVAL: "0"
-    # volumes:
-    #   - 'C:/Users/ibnqu/Desktop/python_lab/db_data/kafka/kafka_data:/bitnami'
-  
-
-  # postgresql:
-  #   image: 'bitnami/postgresql:latest'
-  #   ports:
-  #     - 1234:5432
-
-  #   environment:
-  #     - POSTGRESQL_USERNAME=twitter_user
-  #     - POSTGRESQL_PASSWORD=user123
-  #     - POSTGRESQL_DATABASE=tweet_db
-    
-  #   volumes:
-  #     - 'C:/Users/ibnqu/Desktop/python_lab/db_data/postgres:/bitnami/postgresql'
-  
-  # flask-api:
-  #   image: profbiyi/tweet_kafkaproducer
-  #   ports: 
-  #     - 5000:5000
-  #   depends_on:
-  #     - "kafka"
-  #     - "kafdrop"
+   
