@@ -12,32 +12,20 @@ Sentiment analysis will be performed on realtime tweets, the tweet and results v
 
  ```
 
-├───.circleci
-├           └─── config.yml
 ├───src
 ├     └─── appy.py
-├     └─── test.py
-├     └─── README.md
-├     └─── images
-├               └─── post.PNG
-├               └─── post2.PNG
-├               └─── get_1.PNG
-├               └─── get_all.PNG
-├
-├───docker_docker_compose
-├                        └─── Dockerfile
-├                        └─── docker-compose.yml
-├
-├───k8s
-├    └─── flask_k8_service.yml
-├    └─── flask-api-deployment.yml
-├    └─── minikube_start.PNG
-├    └─── minikube_status.PNG
-├
-├───istio
+├     └─── api.py
+├     └─── apiConfig.py
+├     └─── consumefromkafka.py
+├     └─── templates
+├     └─── static
+├  
+├───containerisation
+├                 └─── docker-compose.yml
+├───database_script
+├    └─── create_table.sql
 ├
 ├───gitignore
-├───gitattributes
 ├───Procfile
 ├───README.md
 ├───requirements.txt
