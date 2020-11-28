@@ -1,5 +1,11 @@
-# DSTI_DevOps_Project
-This project is strictly about devops and it has different part. Each part has there own read me. There is a tree towards the end of this readme to give an idea about how each part of this project is structured.
+# Twitter Sentiment Analysis for Brand Improvement
+This project is designed to pull real data from twitter and perform sentiment analysis on the same, also it is expected to store the tweets and do a batch analysis.
+
+This project is designed for brand improvement. It affords a firm/company etc to track mentions and trends on the twitter space, and use the details to get an idea of the general public's view of their company, business and/or firm. It is also designed to 
+
+
+Sentiment analysis will be performed on realtime tweets, the tweet and results visualised.  At the same time, the same tweets are stored in batches and then analysed.
+
 
 
  ## Project Structure
@@ -38,34 +44,40 @@ This project is strictly about devops and it has different part. Each part has t
 └───runtime
 
  ```
+ 
+ 
+## Tools, Technology and Architecture
 
 
-### 1. Python Create, Read, Update and Delete (CRUD) API
-A simple crud api built with (flask) python and mysql database. Initially, A docker image for mysql was used and port 3307 was opened.
-But later an online free mysql database was provisioned using [Free Online MySQL](https://remotemysql.com/).
+### 1. Tweepy
+Tweepy is the official python api for twitter. It allows for streams and batch harvesting of tweets. A twitter developer account is needed to use this awesome API. To have acces to the necessary keys for twitter api, a user is expected to apply for an account [here](https://developer.twitter.com/en/apply-for-access).
+
+Tweey [documentation](http://docs.tweepy.org/en/latest/)
 
 
-### 2. CI/CD pipeline with CircleCI and Heroku
-
-CI was configure with [CirceCI](https://app.circleci.com/pipelines/github/profbiyi). and CD with [Heroku](https://dashboard.heroku.com/pipelines/2e419849-9de8-42c0-b07e-13eb980d4f27/). I went for this option as it gives me an opportunity to test out different tools. 
-
-The home page of this api [Homepage](https://dstistudents.herokuapp.com/)
+### 2. Apache Kakfa
+Apache Kafka is an open-source distributed event streaming platform used by thousands of companies for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications. Read more about Kafka (here)[https://kafka.apache.org]
 
 
 
-### 3. Docker and Docker Compose
-A `Dockerfile` and `docker-compose.yml` to build the applciation and then to start it.
-
-A docker image was created, tagged and successfully hosted on [profbiyi/mydstistudents_crud_api](https://hub.docker.com/repository/docker/profbiyi/mydstistudents_crud_api). To use the image, ensure that ports 5000, and 3306 are openned and connect to the app using localhost:5000
+### 3. PostgreSQL
+Stores the processed data and allow for other form of batch usage.
 
 
-### 4. Kubernetes
 
-1. Install Kubernetes cluster using Minikube
-2. Two files were created for deployment and services
-  - deployments with three pods - `flask_api-deployment.yml`
-  - services - `flask_k8_service.yml`
-3. 
+### 4. PowerBI
+Displays and visualise the data from apache spark in real time. Also, does same for the data in postgreSQL, but this time as a batch display and visualization.
 
-### 5.  Istio
+
+
+## Usage
+
+
+
+## TODO:
+- send realtime email to alert users
+- combine ML model with the result of Textblob
+- add login page to the flask application
+- containerise the whole application, as some services are set up with docker compose while the others are hosted on ec2.
+- ....
 
