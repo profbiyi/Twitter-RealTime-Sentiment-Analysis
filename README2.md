@@ -71,6 +71,14 @@ Displays and visualise the data from apache spark in real time. Also, does same 
 
 
 ## Usage
+- clone the repository
+- cd to the containerisation directory and run `docker-compose up` or 'docker-compose up -d` to run in silent mode. This will set up Kafka and Kafdrop.
+- goto `localhost:9000` to launch kafdrop web UI. create a broker using the UI
+- create a virtual environment 
+- run `pip install -r requirements.txt`
+- connect to the your postgres database and create the table using the script in `create_table.sql
+- then run `python app.py` to start the flask application.
+- navigate to `localhost:5000` and start streaming and view results from the dashboards.
 
 
 
