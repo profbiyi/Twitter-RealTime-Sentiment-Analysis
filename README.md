@@ -7,6 +7,26 @@ This project is designed for brand improvement. It affords a firm/company etc to
 Sentiment analysis will be performed on realtime tweets, the tweet and results visualised.  At the same time, the same tweets are stored in batches and then analysed.
 
 
+### My Approach.
+###### The `docker-compose.yml` running kafka and kaffrop is hosted on digitalocean as a docker droplet, along side a flask application for initialising the streams and viewing the batch analytics.
+
+- kafdrop is running on `<docker-droplet-host>:9000`
+- flask app is running on `<docker-droplet-host>:5000`
+- kafka is running on `<docker-droplet-host>:9020`
+
+- PostgreSQL is a service on Azure
+- The consumer script `consumefromkafka.py` is hosted separately for now.
+
+They are all available online.
+
+
+##### Cost:
+- No cost was incurred as i used a combination of my student access to Azure, and Github student pack to freely use some paid services.
+
+
+
+
+
 
  ## Project Structure
 
@@ -50,13 +70,15 @@ Tweey [documentation](http://docs.tweepy.org/en/latest/)
 Apache Kafka is an open-source distributed event streaming platform used by thousands of companies for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications. Read more about Kafka (here)[https://kafka.apache.org]
 
 
+### 3. Kafdrop
+Kafdrop is an awesome tool for visualizing kafka. you can get to create a broker, delete, visualise data stored in kafka etc
 
-### 3. PostgreSQL
+
+### 4. PostgreSQL
 Stores the processed data and allow for other form of batch usage.
 
 
-
-### 4. PowerBI
+### 5. PowerBI
 Displays and visualise the data from apache spark in real time. Also, does same for the data in postgreSQL, but this time as a batch display and visualization.
 
 
