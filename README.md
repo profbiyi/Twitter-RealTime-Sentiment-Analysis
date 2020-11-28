@@ -2,7 +2,9 @@
 
 
 ## Realtme Sentiment and Batch Analysis of Tweets
-This project is designed to pull real data from twitter and perform sentiment analysis on the same, also it is expected to store the tweets and do a batch analysis. 
+This project is designed to pull real data from twitter and perform sentiment analysis on the same, also it is expected to store the tweets and do a batch analysis.
+
+This project is designed for brand improvement. It affords a firm/company etc to track mentions and trends on the twitter space, and use the details to get an idea of the general public's view of their company, business and/or firm. It is also designed to 
 
 
 Sentiment analysis will be performed on realtime tweets, the tweet and results visualised.  At the same time, the same tweets are stored in batches and then analysed.
@@ -31,5 +33,6 @@ Sentiment analysis will be performed on realtime tweets, the tweet and results v
         Displays and visualise the data from apache spark in real time. Also, does same for the data in postgreSQL, 
         but this time as a batch display and visualization.
       
+   
 
 
